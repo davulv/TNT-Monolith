@@ -363,6 +363,11 @@
             <artifactId>batik-ext</artifactId>
             <version>1.8</version>
         </dependency>
+		 <dependency>
+			<groupId>jerysey.bundle</groupId>
+			<artifactId>jerysey</artifactId>
+			<version>1.19.1</version>
+		</dependency>
 
 	</dependencies>
 

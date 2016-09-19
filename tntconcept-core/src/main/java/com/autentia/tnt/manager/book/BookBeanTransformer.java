@@ -24,7 +24,7 @@ public class BookBeanTransformer {
 	public Book transformBook(com.emc.ps.appmod.tnt.domain.book.Book inputBook){
 		
 		Book outputBook = new Book();
-		BeanUtils.copyProperties(inputBook, outputBook);
+		BeanUtils.copyProperties(outputBook, inputBook);
 		return outputBook;
 		
 	}
@@ -32,7 +32,7 @@ public class BookBeanTransformer {
 	public com.emc.ps.appmod.tnt.domain.book.Book transformBook(Book inputBook){
 		
 		com.emc.ps.appmod.tnt.domain.book.Book outputBook = new com.emc.ps.appmod.tnt.domain.book.Book();
-		BeanUtils.copyProperties(inputBook, outputBook);
+		BeanUtils.copyProperties(outputBook, inputBook);
 		return outputBook;
 		
 	}

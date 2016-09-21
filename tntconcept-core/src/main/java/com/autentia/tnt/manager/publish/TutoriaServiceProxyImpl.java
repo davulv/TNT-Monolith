@@ -12,11 +12,14 @@ public class TutoriaServiceProxyImpl implements TutoriaServiceProxy{
 	private PublishBeanTransformer transform = new PublishBeanTransformer();
 
 	public String getBaseURI(){
-		return "";
+		return "http://tnt-publications.cfapps.io";
 	}
 
 	public List<Tutorial> getAllEntities(TutorialSearch search, SortCriteria sort) {
-		return null;
+		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial>(
+				getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Tutorial.class);
+		List<com.emc.ps.appmod.tnt.domain.publications.Tutorial>  tutList = rest.getList("/tutorial/list");
+		return transform.transformTutorial(tutList);
 	}
 
 	public Tutorial getEntityById(int id) {

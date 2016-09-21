@@ -1,6 +1,8 @@
 package com.autentia.tnt.manager.publish;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.logging.Log;
@@ -10,6 +12,21 @@ import org.springframework.beans.BeanUtils;
 public class PublishBeanTransformer {
 	
 	private static final Log log = LogFactory.getLog(PublishBeanTransformer.class);
+	
+	public List<com.autentia.tnt.businessobject.Publication> transformPublication(
+			List<com.emc.ps.appmod.tnt.domain.publications.Publication> input){		
+		
+		
+		log.info("-----------in list transformer");
+		List<com.autentia.tnt.businessobject.Publication> pubList = new ArrayList<com.autentia.tnt.businessobject.Publication>();
+		for (com.emc.ps.appmod.tnt.domain.publications.Publication pub: input){
+			log.info("-----------in list transformer ---"+pub.getName());
+			pubList.add(transformPublish(pub));
+		}
+		return pubList;
+	}
+		
+	
 	
 	public com.autentia.tnt.businessobject.Publication transformPublish(
 			com.emc.ps.appmod.tnt.domain.publications.Publication input){		
@@ -77,6 +94,19 @@ public class PublishBeanTransformer {
 		return mag;
 	}
 	
+	
+	
+	public List<com.autentia.tnt.businessobject.Magazine> transformMagazine(
+			List<com.emc.ps.appmod.tnt.domain.publications.Magazine> input){
+		log.info("-----------in list transformer");
+		List<com.autentia.tnt.businessobject.Magazine> magList = new ArrayList<com.autentia.tnt.businessobject.Magazine>();
+		for (com.emc.ps.appmod.tnt.domain.publications.Magazine mag: input){
+			log.info("-----------in list transformer ---"+mag.getName());
+			magList.add(transformMagazine(mag));
+		}
+		return magList;
+	}
+	
 	public com.emc.ps.appmod.tnt.domain.publications.Magazine transformMagazine(
 			com.autentia.tnt.businessobject.Magazine input){		
 		com.emc.ps.appmod.tnt.domain.publications.Magazine mag = new com.emc.ps.appmod.tnt.domain.publications.Magazine();
@@ -140,5 +170,18 @@ public class PublishBeanTransformer {
 		}
 		
 		return tut;
+	}
+	
+	public List<com.autentia.tnt.businessobject.Tutorial> transformTutorial(
+			List<com.emc.ps.appmod.tnt.domain.publications.Tutorial> input){		
+		
+		log.info("-----------in list transformer");
+		List<com.autentia.tnt.businessobject.Tutorial> tutList = new ArrayList<com.autentia.tnt.businessobject.Tutorial>();
+		for (com.emc.ps.appmod.tnt.domain.publications.Tutorial tut: input){
+			log.info("-----------in list transformer ---"+tut.getName());
+			tutList.add(transformTutorial(tut));
+		}
+		return tutList;
+		
 	}
 }

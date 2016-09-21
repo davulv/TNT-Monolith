@@ -15,11 +15,14 @@ public class PublicationServiceProxyImpl implements PublicationServiceProxy {
 	}
 	
 	public String getBaseURI(){
-		return "";
+		return "http://tnt-publications.cfapps.io";
 	}
 
 	public List<Publication> getAllEntities(PublicationSearch search, SortCriteria sort) {
-		return null;
+		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Publication> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Publication>(
+				getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Publication.class);
+		List<com.emc.ps.appmod.tnt.domain.publications.Publication>  pubList = rest.getList("/publication/list");
+		return transform.transformPublication(pubList);
 	}
 
 	public Publication getEntityById(int id) {

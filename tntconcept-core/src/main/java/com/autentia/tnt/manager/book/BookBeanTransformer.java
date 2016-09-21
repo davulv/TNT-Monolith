@@ -3,7 +3,11 @@
  */
 package com.autentia.tnt.manager.book;
 
-import org.springframework.beans.BeanUtils;
+import java.lang.reflect.InvocationTargetException;
+
+import org.apache.commons.beanutils.BeanUtilsBean;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.autentia.tnt.businessobject.Book;
 
@@ -12,6 +16,8 @@ import com.autentia.tnt.businessobject.Book;
  *
  */
 public class BookBeanTransformer {
+	
+	private static final Log log = LogFactory.getLog(BookBeanTransformer.class);
 
 	/**
 	 * @param args
@@ -24,7 +30,16 @@ public class BookBeanTransformer {
 	public Book transformBook(com.emc.ps.appmod.tnt.domain.book.Book inputBook){
 		
 		Book outputBook = new Book();
-		BeanUtils.copyProperties(outputBook, inputBook);
+		//BeanUtils.copyProperties(outputBook, inputBook);
+		try {
+			BeanUtilsBean.getInstance().copyProperties(outputBook, inputBook);
+		} catch (IllegalAccessException ex) {
+			// TODO: handle exception
+			throw new RuntimeException("Error cloning ITransferObject", ex);
+		} catch (InvocationTargetException ex) {
+			// TODO: handle exception
+			throw new RuntimeException("Error cloning ITransferObject", ex);
+		}
 		return outputBook;
 		
 	}
@@ -32,7 +47,16 @@ public class BookBeanTransformer {
 	public com.emc.ps.appmod.tnt.domain.book.Book transformBook(Book inputBook){
 		
 		com.emc.ps.appmod.tnt.domain.book.Book outputBook = new com.emc.ps.appmod.tnt.domain.book.Book();
-		BeanUtils.copyProperties(outputBook, inputBook);
+		//BeanUtils.copyProperties(outputBook, inputBook);
+		try {
+			BeanUtilsBean.getInstance().copyProperties(outputBook, inputBook);
+		} catch (IllegalAccessException ex) {
+			// TODO: handle exception
+			throw new RuntimeException("Error cloning ITransferObject", ex);
+		} catch (InvocationTargetException ex) {
+			// TODO: handle exception
+			throw new RuntimeException("Error cloning ITransferObject", ex);
+		}
 		return outputBook;
 		
 	}

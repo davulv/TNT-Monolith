@@ -2,6 +2,8 @@ package com.emc.ps.appmod.tnt.domain.publications;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 public class Publication {
 
 	private Integer id;

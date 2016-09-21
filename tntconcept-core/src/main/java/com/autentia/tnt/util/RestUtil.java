@@ -1,7 +1,9 @@
-package com.autentia.tnt.util;
+package com.example;
+import java.util.List;
 
 import javax.ws.rs.core.MediaType;
 
+import org.codehaus.jackson.type.TypeReference;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -57,8 +59,8 @@ public class RestUtil<T> {
 	public T put(String path, T requestEntity){
 		WebResource webResource = client
 				   .resource(baseURI +path);
-		ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON).put(ClientResponse.class, requestEntity);
+		ClientResponse response = webResource.accept("application/json")
+                .put(ClientResponse.class, requestEntity);
 		/*if (response.getStatus() > 201) {
 			   throw new RuntimeException("Failed : HTTP error code : "
 				+ response.getStatus());
@@ -66,5 +68,16 @@ public class RestUtil<T> {
 		
 		T responseEntity = response.getEntity(responseEntityClass);
 		return responseEntity;
+	}
+	
+	public List<T> postToGetList(String path, Object searchRequest){
+		ClientResponse response = client
+				   .resource(baseURI +path).accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON).post(ClientResponse.class, searchRequest);
+		
+		
+		
+		List<T> responseEntity = response.getEntity(List.class);		
+		return responseEntity; 
 	}
 }

@@ -4,6 +4,8 @@
 package com.autentia.tnt.manager.book;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.logging.Log;
@@ -59,6 +61,16 @@ public class BookBeanTransformer {
 		}
 		return outputBook;
 		
+	}
+	
+	public List<Book> transformBookList(List<com.emc.ps.appmod.tnt.domain.book.Book> inputBookList) {
+		log.info("........in booklist transformer");
+		List<Book> outputBookList = new ArrayList<Book>();
+		for (com.emc.ps.appmod.tnt.domain.book.Book inputBook : inputBookList) {
+			log.info(".....in booklist transformer...."+inputBook.getName());
+			outputBookList.add(transformBook(inputBook));
+		}
+		return outputBookList;
 	}
 
 }

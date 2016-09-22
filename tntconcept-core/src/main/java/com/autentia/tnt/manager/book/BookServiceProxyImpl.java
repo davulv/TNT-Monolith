@@ -23,7 +23,7 @@ public class BookServiceProxyImpl implements BookServiceProxy {
 	}
 	
 	public String getBaseURI(){
-		return "";
+		return "http://tnt-utilities.cfapps.io/api/utilities";
 	}
 
 	/* (non-Javadoc)
@@ -31,7 +31,10 @@ public class BookServiceProxyImpl implements BookServiceProxy {
 	 */
 	public List<Book> getAllBooks(BookSearch search, SortCriteria sort) {
 		// TODO Auto-generated method stub
-		return null;
+		RestUtil<com.emc.ps.appmod.tnt.domain.book.Book> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.book.Book>
+												(getBaseURI(), com.emc.ps.appmod.tnt.domain.book.Book.class);
+		List<com.emc.ps.appmod.tnt.domain.book.Book> bookList = rest.getList("/book/list");
+		return transform.transformBookList(bookList);
 	}
 
 	/* (non-Javadoc)

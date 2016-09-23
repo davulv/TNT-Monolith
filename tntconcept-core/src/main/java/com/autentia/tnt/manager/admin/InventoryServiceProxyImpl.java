@@ -6,6 +6,9 @@ import com.autentia.tnt.businessobject.Inventary;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.InventarySearch;
 import com.autentia.tnt.util.RestUtil;
+import com.autentia.tnt.util.SpringUtils;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.GenericType;
 
 public class InventoryServiceProxyImpl implements InventoryServiceProxy {
 	
@@ -23,14 +26,18 @@ public class InventoryServiceProxyImpl implements InventoryServiceProxy {
 		RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory>
 		(getBaseURI(), com.emc.ps.appmod.tnt.domain.utilities.Inventory.class);
 		
-		List<com.emc.ps.appmod.tnt.domain.utilities.Inventory> inventoryList =  rest.getList("/inventory/list");
+		ClientResponse response =  rest.getList("/inventory/list");
+		List<com.emc.ps.appmod.tnt.domain.utilities.Inventory> inventoryList = response.getEntity(
+				new GenericType<List<com.emc.ps.appmod.tnt.domain.utilities.Inventory>>() {});
+		
+		
 		
 		return transform.transformInventory(inventoryList);
 		
 
 	}
 
-	public Inventary getEntityById(int id) {
+	public Inventary getById(int id) {
 		RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory>
 													(getBaseURI(), com.emc.ps.appmod.tnt.domain.utilities.Inventory.class);
 		
@@ -41,6 +48,7 @@ public class InventoryServiceProxyImpl implements InventoryServiceProxy {
 	}
 
 	public void insertEntity(Inventary inventary) {
+		inventary.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory>
 														(getBaseURI(), com.emc.ps.appmod.tnt.domain.utilities.Inventory.class);
 
@@ -49,6 +57,7 @@ public class InventoryServiceProxyImpl implements InventoryServiceProxy {
 	}
 
 	public void updateEntity(Inventary inventary) {
+		inventary.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory>
 													(getBaseURI(), com.emc.ps.appmod.tnt.domain.utilities.Inventory.class);
 		com.emc.ps.appmod.tnt.domain.utilities.Inventory inventory =  transform.transformInventory(inventary);

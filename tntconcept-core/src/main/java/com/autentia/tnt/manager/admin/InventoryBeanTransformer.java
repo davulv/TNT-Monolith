@@ -15,6 +15,7 @@ public class InventoryBeanTransformer {
 		//BeanUtils.copyProperties(pub, input);
 		try {
 			BeanUtilsBean.getInstance().copyProperties(inventary, input);
+			inventary.setId(input.getId());
 		} 
 		catch (IllegalAccessException ex) {
 			throw new RuntimeException("Error cloning ITransferObject",ex);

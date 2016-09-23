@@ -11,7 +11,7 @@ public class Inventory implements Serializable {
 
 	private static final long serialVersionUID = -8913970246003697175L;
 	
-	private Long id;
+	private Integer id;
 
 	
 	private Date buyDate;
@@ -152,11 +152,11 @@ public class Inventory implements Serializable {
 		this.description = description;
 	}
 
-	public InventoryType getType() {
+	public InventoryType getInventoryType() {
 		return type;
 	}
 
-	public void setType(InventoryType type) {
+	public void setInventoryType(InventoryType type) {
 		
 		this.type = type;
 	}
@@ -185,11 +185,11 @@ public class Inventory implements Serializable {
 		this.departmentId = departmentId;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

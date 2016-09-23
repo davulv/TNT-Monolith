@@ -80,8 +80,15 @@ public class InventaryManager {
    * @return the list of all inventarys sorted by requested criterion
    */
   public List<Inventary> getAllEntities(InventarySearch search, SortCriteria sort){
+	  log.debug("inventory getAllEntities ");
     //return inventaryDAO.search( search, sort );
-    return proxy.getAllEntities(search, sort);
+    //return proxy.getAllEntities(search, sort);
+    
+    List<Inventary> inventaryList =  proxy.getAllEntities(search, sort);
+	  log.info("In InventoryManager getAllEntities --"+ inventaryList.size());
+	  Inventary inventary = inventaryList.get(0);
+	  log.info("In InventoryManager  getAllEntitiesid before returning --"+ inventary.getId()  +"ownerid--"+ inventary.getOwnerId());
+	  return inventaryList;
   }
   
   /**
@@ -90,7 +97,7 @@ public class InventaryManager {
    */
   public Inventary getEntityById(int id){
     //return inventaryDAO.getById(id);
-    return proxy.getEntityById(id);
+    return (Inventary) proxy.getById(id);
   }
 	
   /**

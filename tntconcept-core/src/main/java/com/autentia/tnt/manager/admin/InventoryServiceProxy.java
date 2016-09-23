@@ -5,8 +5,9 @@ import java.util.List;
 import com.autentia.tnt.businessobject.Inventary;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.InventarySearch;
+import com.autentia.tnt.manager.publish.IProxy;
 
-public interface InventoryServiceProxy {
+public interface InventoryServiceProxy extends IProxy{
 	 /**
 	   * List publications. 
 	   * @param search search filter to apply
@@ -15,12 +16,7 @@ public interface InventoryServiceProxy {
 	   */
 	  public List<Inventary> getAllEntities(InventarySearch search, SortCriteria sort);
 	  
-	  /**
-	   * Get publication by primary key.
-	   * @return publication selected by id.
-	   */
-	  public com.autentia.tnt.businessobject.Inventary getEntityById(int id);
-		
+			
 	  /**
 	   * Insert publication. 
 	   */

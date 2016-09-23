@@ -96,6 +96,7 @@
   <bean id="proxydaoMagazine" class="com.autentia.tnt.manager.publish.MagazineServiceProxyImpl" />
   <bean id="proxydaoPublication" class="com.autentia.tnt.manager.publish.PublicationServiceProxyImpl" />
   <bean id="proxydaoTutorial" class="com.autentia.tnt.manager.publish.TutoriaServiceProxyImpl" />
+  <bean id="inventoryServiceProxy" class="com.autentia.tnt.manager.admin.InventoryServiceProxyImpl" />
 
 	<!-- Managers -->
 	<bean id="managerAccountEntry" class="com.autentia.tnt.manager.account.AccountEntryManager">

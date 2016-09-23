@@ -886,7 +886,7 @@
 	<entry><key><value>com.autentia.tnt.businessobject.Idea</value></key><ref bean="daoIdea"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Interaction</value></key><ref bean="daoInteraction"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.InteractionType</value></key><ref bean="daoInteractionType"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.Inventary</value></key><ref bean="daoInventary"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.Inventary</value></key><ref bean="inventoryServiceProxy"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Magazine</value></key><ref bean="proxydaoMagazine"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Objective</value></key><ref bean="daoObjective"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Organization</value></key><ref bean="daoOrganization"/></entry>

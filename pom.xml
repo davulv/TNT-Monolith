@@ -363,11 +363,22 @@
             <artifactId>batik-ext</artifactId>
             <version>1.8</version>
         </dependency>
-		 <dependency>
+       <dependency>
 			<groupId>jerysey.bundle</groupId>
 			<artifactId>jerysey</artifactId>
 			<version>1.19.1</version>
 		</dependency>
+		 <dependency>
+			<groupId>jackson.core</groupId>
+			<artifactId>jackson</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+		<dependency>
+	    <groupId>com.sun.jersey</groupId>
+	    <artifactId>jersey-json</artifactId>
+	    <version>1.19.1</version>
+	</dependency>
+
 
 	</dependencies>
 

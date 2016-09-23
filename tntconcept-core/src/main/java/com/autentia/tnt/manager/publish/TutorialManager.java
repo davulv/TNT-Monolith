@@ -83,7 +83,7 @@ public class TutorialManager {
    */
   public List<Tutorial> getAllEntities(TutorialSearch search, SortCriteria sort){
     //return tutorialDAO.search( search, sort );
-	  List<Tutorial> tutList =  proxy.getAllEntities(search, sort);
+	  List<Tutorial> tutList =  tutorialProxy.getAllEntities(search, sort);
 	  return  tutList;
   }
   

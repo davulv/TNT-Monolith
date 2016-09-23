@@ -91,7 +91,9 @@
   <bean id="daoActivityFile" class="com.autentia.tnt.dao.hibernate.ActivityFileDAO" />
   <bean id="daoPosition" class="com.autentia.tnt.dao.hibernate.PositionDAO" />
   <bean id="daoTag" class="com.autentia.tnt.dao.hibernate.TagDAO" />
-  <bean id="daoEntityChange" class="com.autentia.tnt.tracking.hibernate.dao.EntityChangeDAO" />
+  <bean id="daoEntityChange" class="com.autentia.tnt.tracking.hibernate.dao.EntityChangeDAO" /> 
+  <bean id="bookServiceProxy" class="com.autentia.tnt.manager.book.BookServiceProxyImpl" /> 
+  
 
 	<!-- Managers -->
 	<bean id="managerAccountEntry" class="com.autentia.tnt.manager.account.AccountEntryManager">

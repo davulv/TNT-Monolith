@@ -13,11 +13,11 @@ import com.autentia.tnt.dao.search.BookSearch;
  * @author bj3
  *
  */
-public interface BookServiceProxy {
+public interface BookServiceProxy  extends IProxy {
 
 	public List<Book> getAllBooks(BookSearch search, SortCriteria sort);
 	
-	public Book getBookById(Integer id);
+	//public Book getBookById(Integer id); since present in Iproxy
 	
 	public void insertBook(Book book);
 	

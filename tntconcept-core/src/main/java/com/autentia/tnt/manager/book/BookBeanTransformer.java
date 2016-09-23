@@ -35,6 +35,7 @@ public class BookBeanTransformer {
 		//BeanUtils.copyProperties(outputBook, inputBook);
 		try {
 			BeanUtilsBean.getInstance().copyProperties(outputBook, inputBook);
+			outputBook.setId(inputBook.getId());
 		} catch (IllegalAccessException ex) {
 			// TODO: handle exception
 			throw new RuntimeException("Error cloning ITransferObject", ex);

@@ -78,6 +78,7 @@ public class BookManager {
    */
   public List<Book> getAllEntities(BookSearch search, SortCriteria sort){
     return bookDAO.search( search, sort );
+    //return bookServiceProxy.getAllBooks(search, sort);
   }
   
   /**

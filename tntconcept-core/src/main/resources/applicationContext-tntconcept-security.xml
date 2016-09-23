@@ -872,7 +872,7 @@
 	<entry><key><value>com.autentia.tnt.businessobject.Bill</value></key><ref bean="daoBill"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.CreditTitle</value></key><ref bean="daoCreditTitle"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.BillBreakDown</value></key><ref bean="daoBillBreakDown"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.Book</value></key><ref bean="daoBook"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.Book</value></key><ref bean="bookServiceProxy"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.BulletinBoardCategory</value></key><ref bean="daoBulletinBoardCategory"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.BulletinBoard</value></key><ref bean="daoBulletinBoard"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.CompanyState</value></key><ref bean="daoCompanyState"/></entry>

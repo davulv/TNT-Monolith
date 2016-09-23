@@ -9,6 +9,7 @@ import com.autentia.tnt.businessobject.Book;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.BookSearch;
 import com.autentia.tnt.util.RestUtil;
+import com.autentia.tnt.util.SpringUtils;
 
 /**
  * @author bj3
@@ -40,7 +41,7 @@ public class BookServiceProxyImpl implements BookServiceProxy {
 	/* (non-Javadoc)
 	 * @see com.autentia.tnt.manager.book.BookServiceProxy#getBookById(java.lang.Integer)
 	 */
-	public Book getBookById(Integer id) {
+	public Book getById(Integer id) {
 		// TODO Auto-generated method stub
 		RestUtil<com.emc.ps.appmod.tnt.domain.book.Book> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.book.Book>
 												(getBaseURI(), com.emc.ps.appmod.tnt.domain.book.Book.class);
@@ -53,6 +54,7 @@ public class BookServiceProxyImpl implements BookServiceProxy {
 	 */
 	public void insertBook(Book book) {
 		// TODO Auto-generated method stub
+		book.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.book.Book> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.book.Book>
 												(getBaseURI(), com.emc.ps.appmod.tnt.domain.book.Book.class);
 		com.emc.ps.appmod.tnt.domain.book.Book b = transform.transformBook(book);
@@ -64,6 +66,7 @@ public class BookServiceProxyImpl implements BookServiceProxy {
 	 */
 	public void updateBook(Book book) {
 		// TODO Auto-generated method stub
+		book.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.book.Book> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.book.Book>
 												(getBaseURI(), com.emc.ps.appmod.tnt.domain.book.Book.class);
 		com.emc.ps.appmod.tnt.domain.book.Book b = transform.transformBook(book);

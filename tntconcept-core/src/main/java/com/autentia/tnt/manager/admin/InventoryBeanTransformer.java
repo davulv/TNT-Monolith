@@ -5,8 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class InventoryBeanTransformer {
+	
+	 /** Logger */
+	  private static final Log log = LogFactory.getLog(InventoryBeanTransformer.class);
 	
 	public com.autentia.tnt.businessobject.Inventary transformInventory(
 			com.emc.ps.appmod.tnt.domain.utilities.Inventory input){		
@@ -37,7 +42,10 @@ public class InventoryBeanTransformer {
 		com.emc.ps.appmod.tnt.domain.utilities.Inventory inventory = new com.emc.ps.appmod.tnt.domain.utilities.Inventory();
 		
 		try {
+			log.debug("transformInventory businessobject to domain object");
 			BeanUtilsBean.getInstance().copyProperties(inventory, input);
+			inventory.setInventoryType(com.emc.ps.appmod.tnt.domain.utilities.InventoryType.DESKTOP_PC);
+			log.debug("transformInventory businessobject to domain object exit");
 		} 
 		catch (IllegalAccessException ex) {
 			throw new RuntimeException("Error cloning ITransferObject",ex);

@@ -2,6 +2,9 @@ package com.autentia.tnt.manager.admin;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.autentia.tnt.businessobject.Inventary;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.InventarySearch;
@@ -13,6 +16,9 @@ import com.sun.jersey.api.client.GenericType;
 public class InventoryServiceProxyImpl implements InventoryServiceProxy {
 	
 	private InventoryBeanTransformer transform = new InventoryBeanTransformer();
+	
+	 /** Logger */
+	  private static final Log log = LogFactory.getLog(InventoryServiceProxyImpl.class);
 	
 	public InventoryServiceProxyImpl(){
 	}
@@ -48,12 +54,19 @@ public class InventoryServiceProxyImpl implements InventoryServiceProxy {
 	}
 
 	public void insertEntity(Inventary inventary) {
+		log.info("insertEntity entry");
+		
 		inventary.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory>
 														(getBaseURI(), com.emc.ps.appmod.tnt.domain.utilities.Inventory.class);
 
 		com.emc.ps.appmod.tnt.domain.utilities.Inventory inventory =  transform.transformInventory(inventary);
+		log.info("insertEntity transformed");
+		try {
 		rest.post("/inventory", inventory);
+		}catch(Exception e) {
+			log.info("insertEntity exception", e);
+		}
 	}
 
 	public void updateEntity(Inventary inventary) {

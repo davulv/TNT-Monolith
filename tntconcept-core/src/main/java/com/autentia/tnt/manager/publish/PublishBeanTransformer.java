@@ -36,6 +36,7 @@ public class PublishBeanTransformer {
 		try
 		{
 			BeanUtilsBean.getInstance().copyProperties(pub, input);
+			pub.setId(input.getId());
 		} 
 		catch (IllegalAccessException ex)
 		{
@@ -80,6 +81,7 @@ public class PublishBeanTransformer {
 		try
 		{
 			BeanUtilsBean.getInstance().copyProperties(mag, input);
+			mag.setId(input.getId());
 		} 
 		catch (IllegalAccessException ex)
 		{
@@ -90,7 +92,7 @@ public class PublishBeanTransformer {
 			throw new RuntimeException("Error cloning ITransferObject",ex);
 		}
 		
-		log.info("-------------In transformer-------"+ mag.getName());
+		log.info("-------------In transformer-------"+ mag.getName() + "transformedid - "+ mag.getId());
 		return mag;
 	}
 	
@@ -101,7 +103,7 @@ public class PublishBeanTransformer {
 		log.info("-----------in list transformer");
 		List<com.autentia.tnt.businessobject.Magazine> magList = new ArrayList<com.autentia.tnt.businessobject.Magazine>();
 		for (com.emc.ps.appmod.tnt.domain.publications.Magazine mag: input){
-			log.info("-----------in list transformer ---"+mag.getName());
+			log.info("-----------in list transformer ---"+mag.getName() + " id --"+ mag.getId());
 			magList.add(transformMagazine(mag));
 		}
 		return magList;
@@ -138,6 +140,7 @@ public class PublishBeanTransformer {
 		try
 		{
 			BeanUtilsBean.getInstance().copyProperties(tut, input);
+			tut.setId(input.getId());
 		} 
 		catch (IllegalAccessException ex)
 		{

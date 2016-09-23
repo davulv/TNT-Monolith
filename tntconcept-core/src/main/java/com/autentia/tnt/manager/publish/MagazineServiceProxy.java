@@ -6,7 +6,7 @@ import com.autentia.tnt.businessobject.Magazine;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.MagazineSearch;
 
-public interface MagazineServiceProxy {
+public interface MagazineServiceProxy extends IProxy{
 	/**
 	   * List magazines. 
 	   * @param search search filter to apply
@@ -14,11 +14,7 @@ public interface MagazineServiceProxy {
 	   * @return the list of all magazines sorted by requested criterion
 	   */
 	  public List<Magazine> getAllEntities(MagazineSearch search, SortCriteria sort);
-	  /**
-	   * Get magazine by primary key.
-	   * @return magazine selected by id.
-	   */
-	  public Magazine getEntityById(int id);
+	  
 		
 	  /**
 	   * Insert magazine. 
@@ -34,6 +30,8 @@ public interface MagazineServiceProxy {
 	   * Delete magazine. 
 	   */
 	  public void deleteEntity(Magazine magazine);
+	  
+	  
 
 	
 }

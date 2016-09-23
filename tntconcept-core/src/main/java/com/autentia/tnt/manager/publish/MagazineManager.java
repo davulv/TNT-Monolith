@@ -76,7 +76,12 @@ public class MagazineManager {
    * @return the list of all magazines sorted by requested criterion
    */
   public List<Magazine> getAllEntities(MagazineSearch search, SortCriteria sort){
-    return magazineDAO.search( search, sort );
+    //return magazineDAO.search( search, sort );
+	  List<Magazine> magList =  proxy.getAllEntities(search, sort);
+	  log.info("In MagazineManager --"+ magList.size());
+	  Magazine m = magList.get(0);
+	  log.info("In MagazineManager id before returning --"+ m.getId() + "name "+ m.getName() +"ownerid--"+ m.getOwnerId());
+	  return magList;
   }
   
   /**
@@ -85,7 +90,7 @@ public class MagazineManager {
    */
   public Magazine getEntityById(int id){
     //return magazineDAO.getById(id);
-	  return proxy.getEntityById(id);
+	  return (Magazine)proxy.getById(id);
   }
 	
   /**
@@ -93,6 +98,7 @@ public class MagazineManager {
    */
   public void insertEntity(Magazine magazine) {
     //magazineDAO.insert(magazine);
+	  log.info("In Insert magazine "+ magazine.getOwnerId());	  
 	  proxy.insertEntity(magazine);
   }
 	 

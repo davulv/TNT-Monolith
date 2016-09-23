@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     TNTConcept Easy Enterprise Management by Autentia Real Bussiness Solution S.L.
@@ -888,7 +887,7 @@
 	<entry><key><value>com.autentia.tnt.businessobject.Interaction</value></key><ref bean="daoInteraction"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.InteractionType</value></key><ref bean="daoInteractionType"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Inventary</value></key><ref bean="daoInventary"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.Magazine</value></key><ref bean="daoMagazine"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.Magazine</value></key><ref bean="proxydaoMagazine"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Objective</value></key><ref bean="daoObjective"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Organization</value></key><ref bean="daoOrganization"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.OrganizationISOCategory</value></key><ref bean="daoOrganizationISOCategory"/></entry>
@@ -899,10 +898,10 @@
 	<entry><key><value>com.autentia.tnt.businessobject.Project</value></key><ref bean="daoProject"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.ProjectRole</value></key><ref bean="daoProjectRole"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Province</value></key><ref bean="daoProvince"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.Publication</value></key><ref bean="daoPublication"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.Publication</value></key><ref bean="proxydaoPublication"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.RequestHoliday</value></key><ref bean="daoRequestHoliday"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Role</value></key><ref bean="daoRole"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.Tutorial</value></key><ref bean="daoTutorial"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.Tutorial</value></key><ref bean="proxydaoTutorial"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.UserCategory</value></key><ref bean="daoUserCategory"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.User</value></key><ref bean="daoUser"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.OfferRejectReason</value></key><ref bean="daoOfferRejectReason"/></entry>

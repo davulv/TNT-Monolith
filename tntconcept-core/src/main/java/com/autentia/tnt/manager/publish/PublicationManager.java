@@ -90,7 +90,7 @@ public class PublicationManager {
    */
   public Publication getEntityById(int id){
     //return publicationDAO.getById(id);
-	  return proxy.getEntityById(id);
+	  return (Publication)proxy.getById(id);
   }
 	
   /**

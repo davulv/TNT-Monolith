@@ -89,7 +89,7 @@ public class TutorialManager {
    */
   public Tutorial getEntityById(int id){
     //return tutorialDAO.getById(id);
-	  return tutorialProxy.getEntityById(id);
+	  return (Tutorial)tutorialProxy.getById(id);
   }
 	
   /**

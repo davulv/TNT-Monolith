@@ -6,7 +6,7 @@ import com.autentia.tnt.businessobject.Publication;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.PublicationSearch;
 
-public interface PublicationServiceProxy {
+public interface PublicationServiceProxy  extends IProxy{
 	 /**
 	   * List publications. 
 	   * @param search search filter to apply
@@ -15,11 +15,7 @@ public interface PublicationServiceProxy {
 	   */
 	  public List<Publication> getAllEntities(PublicationSearch search, SortCriteria sort);
 	  
-	  /**
-	   * Get publication by primary key.
-	   * @return publication selected by id.
-	   */
-	  public com.autentia.tnt.businessobject.Publication getEntityById(int id);
+	 
 		
 	  /**
 	   * Insert publication. 

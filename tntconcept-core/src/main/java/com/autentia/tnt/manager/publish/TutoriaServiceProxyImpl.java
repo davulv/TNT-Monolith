@@ -6,6 +6,9 @@ import com.autentia.tnt.businessobject.Tutorial;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.TutorialSearch;
 import com.autentia.tnt.util.RestUtil;
+import com.autentia.tnt.util.SpringUtils;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.GenericType;
 
 public class TutoriaServiceProxyImpl implements TutoriaServiceProxy{
 	
@@ -18,11 +21,13 @@ public class TutoriaServiceProxyImpl implements TutoriaServiceProxy{
 	public List<Tutorial> getAllEntities(TutorialSearch search, SortCriteria sort) {
 		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial>(
 				getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Tutorial.class);
-		List<com.emc.ps.appmod.tnt.domain.publications.Tutorial>  tutList = rest.getList("/tutorial/list");
+		ClientResponse response =  rest.getList("/tutorial/list");
+		List<com.emc.ps.appmod.tnt.domain.publications.Tutorial> tutList = response.getEntity(
+				new GenericType<List<com.emc.ps.appmod.tnt.domain.publications.Tutorial>>() {});
 		return transform.transformTutorial(tutList);
 	}
 
-	public Tutorial getEntityById(int id) {
+	public Tutorial getById(int id) {
 		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial>
 													(getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Tutorial.class);
 		 
@@ -31,6 +36,7 @@ public class TutoriaServiceProxyImpl implements TutoriaServiceProxy{
 	}
 
 	public void insertEntity(Tutorial tutorial) {
+		tutorial.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial>
 														(getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Tutorial.class);
 
@@ -39,6 +45,7 @@ public class TutoriaServiceProxyImpl implements TutoriaServiceProxy{
 	}
 
 	public void updateEntity(Tutorial tutorial) {
+		tutorial.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Tutorial>
 													(getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Tutorial.class);
 		com.emc.ps.appmod.tnt.domain.publications.Tutorial tut =  transform.transformTutorial(tutorial);

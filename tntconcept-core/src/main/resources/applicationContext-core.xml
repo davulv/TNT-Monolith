@@ -93,7 +93,9 @@
   <bean id="daoTag" class="com.autentia.tnt.dao.hibernate.TagDAO" />
   <bean id="daoEntityChange" class="com.autentia.tnt.tracking.hibernate.dao.EntityChangeDAO" /> 
   <bean id="bookServiceProxy" class="com.autentia.tnt.manager.book.BookServiceProxyImpl" /> 
-  
+  <bean id="proxydaoMagazine" class="com.autentia.tnt.manager.publish.MagazineServiceProxyImpl" />
+  <bean id="proxydaoPublication" class="com.autentia.tnt.manager.publish.PublicationServiceProxyImpl" />
+  <bean id="proxydaoTutorial" class="com.autentia.tnt.manager.publish.TutoriaServiceProxyImpl" />
 
 	<!-- Managers -->
 	<bean id="managerAccountEntry" class="com.autentia.tnt.manager.account.AccountEntryManager">

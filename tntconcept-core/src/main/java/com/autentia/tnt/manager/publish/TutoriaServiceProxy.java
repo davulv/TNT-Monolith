@@ -6,7 +6,7 @@ import com.autentia.tnt.businessobject.Tutorial;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.TutorialSearch;
 
-public interface TutoriaServiceProxy {
+public interface TutoriaServiceProxy  extends IProxy{
 	/**
 	   * List tutorials. 
 	   * @param search search filter to apply
@@ -15,11 +15,7 @@ public interface TutoriaServiceProxy {
 	   */
 	  public List<Tutorial> getAllEntities(TutorialSearch search, SortCriteria sort);
 	  
-	  /**
-	   * Get tutorial by primary key.
-	   * @return tutorial selected by id.
-	   */
-	  public Tutorial getEntityById(int id);
+	 
 		
 	  /**
 	   * Insert tutorial. 

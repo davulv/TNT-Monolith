@@ -9,6 +9,9 @@ import com.autentia.tnt.businessobject.Magazine;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.MagazineSearch;
 import com.autentia.tnt.util.RestUtil;
+import com.autentia.tnt.util.SpringUtils;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.GenericType;
 
 public class MagazineServiceProxyImpl implements MagazineServiceProxy{
 	
@@ -21,13 +24,18 @@ public class MagazineServiceProxyImpl implements MagazineServiceProxy{
 	}
 
 	public List<Magazine> getAllEntities(MagazineSearch search, SortCriteria sort) {
+		log.info("In List------");
 		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Magazine> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Magazine>(
 																			getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Magazine.class);
-		List<com.emc.ps.appmod.tnt.domain.publications.Magazine>  magList = rest.getList("/magazine/list");
+		log.info("In List------before rest");
+		ClientResponse response =  rest.getList("/magazine/list");
+		List<com.emc.ps.appmod.tnt.domain.publications.Magazine> magList = response.getEntity(
+				new GenericType<List<com.emc.ps.appmod.tnt.domain.publications.Magazine>>() {});
+		log.info("In List------after rest"+ magList.size());
 		return transform.transformMagazine(magList);
 	}
 
-	public Magazine getEntityById(int id) {
+	public Magazine getById(int id) {
 		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Magazine> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Magazine>
 													(getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Magazine.class);
 		
@@ -37,15 +45,17 @@ public class MagazineServiceProxyImpl implements MagazineServiceProxy{
 
 	public void insertEntity(Magazine magazine) {
 		log.info("--------------In create Mag----"+magazine.getName());
+		magazine.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Magazine> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Magazine>
 														(getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Magazine.class);
 
 		com.emc.ps.appmod.tnt.domain.publications.Magazine mag =  transform.transformMagazine(magazine);
-		log.info("--------------In create Mag after transformation----"+mag.getName());
+		log.info("--------------In create Mag after transformation----"+mag.getName() + "owner Id --"+ mag.getOwnerId());
 		rest.post("/magazine", mag);
 	}
 
 	public void updateEntity(Magazine magazine) {
+		magazine.setOwnerId(SpringUtils.getPrincipal().getId());
 		RestUtil<com.emc.ps.appmod.tnt.domain.publications.Magazine> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.publications.Magazine>
 													(getBaseURI(), com.emc.ps.appmod.tnt.domain.publications.Magazine.class);
 		com.emc.ps.appmod.tnt.domain.publications.Magazine mag =  transform.transformMagazine(magazine);

@@ -22,6 +22,8 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.autentia.tnt.businessobject.Magazine;
+import com.autentia.tnt.businessobject.Publication;
 import com.autentia.tnt.businessobject.Tutorial;
 import com.autentia.tnt.businessobject.User;
 import com.autentia.tnt.dao.SortCriteria;
@@ -80,7 +82,9 @@ public class TutorialManager {
    * @return the list of all tutorials sorted by requested criterion
    */
   public List<Tutorial> getAllEntities(TutorialSearch search, SortCriteria sort){
-    return tutorialDAO.search( search, sort );
+    //return tutorialDAO.search( search, sort );
+	  List<Tutorial> tutList =  proxy.getAllEntities(search, sort);
+	  return  tutList;
   }
   
   /**

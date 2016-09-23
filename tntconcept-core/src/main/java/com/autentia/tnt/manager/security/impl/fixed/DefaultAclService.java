@@ -35,6 +35,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.autentia.tnt.dao.IDataAccessObject;
 import com.autentia.tnt.dao.ITransferObject;
+import com.autentia.tnt.manager.publish.IProxy;
 import com.autentia.tnt.manager.security.Principal;
 import com.autentia.tnt.util.SpringUtils;
 
@@ -215,6 +216,11 @@ public class DefaultAclService implements AclService
 	{ 
 		Class type = objid.getJavaType();
 		Integer id = (Integer)objid.getIdentifier();
+		Object daoObj = daoMap.get(type.getName());
+		if(daoObj instanceof IProxy){
+			IProxy proxy = (IProxy)daoObj;
+			return (ITransferObject) proxy.getById(id);
+		}
 		IDataAccessObject dao = daoMap.get(type.getName());
 		
 		if( dao==null )

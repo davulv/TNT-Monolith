@@ -81,7 +81,9 @@ public class PublicationManager {
    * @return the list of all publications sorted by requested criterion
    */
   public List<Publication> getAllEntities(PublicationSearch search, SortCriteria sort){
-    return publicationDAO.search( search, sort );
+    //return publicationDAO.search( search, sort );
+	  List<Publication> pubList =  proxy.getAllEntities(search, sort);
+	  return pubList;
   }
   
   /**

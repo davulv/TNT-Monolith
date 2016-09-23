@@ -78,9 +78,7 @@ public class MagazineManager {
   public List<Magazine> getAllEntities(MagazineSearch search, SortCriteria sort){
     //return magazineDAO.search( search, sort );
 	  List<Magazine> magList =  proxy.getAllEntities(search, sort);
-	  log.info("In MagazineManager --"+ magList.size());
-	  Magazine m = magList.get(0);
-	  log.info("In MagazineManager id before returning --"+ m.getId() + "name "+ m.getName() +"ownerid--"+ m.getOwnerId());
+	  	  
 	  return magList;
   }
   

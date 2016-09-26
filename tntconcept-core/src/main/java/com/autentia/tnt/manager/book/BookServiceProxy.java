@@ -8,6 +8,7 @@ import java.util.List;
 import com.autentia.tnt.businessobject.Book;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.BookSearch;
+import com.autentia.tnt.manager.publish.IProxy;
 
 /**
  * @author bj3

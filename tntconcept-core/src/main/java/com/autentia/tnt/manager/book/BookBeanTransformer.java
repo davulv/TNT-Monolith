@@ -29,13 +29,13 @@ public class BookBeanTransformer {
 
 	}
 	
-	public Book transformBook(com.emc.ps.appmod.tnt.domain.book.Book inputBook){
+	public Book transformBook(com.emc.ps.appmod.tnt.domain.utilities.Book inputBook){
 		
 		Book outputBook = new Book();
 		//BeanUtils.copyProperties(outputBook, inputBook);
 		try {
 			BeanUtilsBean.getInstance().copyProperties(outputBook, inputBook);
-			outputBook.setId(inputBook.getId());
+			outputBook.setId(new Long(inputBook.getId()).intValue());
 		} catch (IllegalAccessException ex) {
 			// TODO: handle exception
 			throw new RuntimeException("Error cloning ITransferObject", ex);
@@ -47,9 +47,9 @@ public class BookBeanTransformer {
 		
 	}
 	
-	public com.emc.ps.appmod.tnt.domain.book.Book transformBook(Book inputBook){
+	public com.emc.ps.appmod.tnt.domain.utilities.Book transformBook(Book inputBook){
 		
-		com.emc.ps.appmod.tnt.domain.book.Book outputBook = new com.emc.ps.appmod.tnt.domain.book.Book();
+		com.emc.ps.appmod.tnt.domain.utilities.Book outputBook = new com.emc.ps.appmod.tnt.domain.utilities.Book();
 		//BeanUtils.copyProperties(outputBook, inputBook);
 		try {
 			BeanUtilsBean.getInstance().copyProperties(outputBook, inputBook);
@@ -64,10 +64,10 @@ public class BookBeanTransformer {
 		
 	}
 	
-	public List<Book> transformBookList(List<com.emc.ps.appmod.tnt.domain.book.Book> inputBookList) {
+	public List<Book> transformBookList(List<com.emc.ps.appmod.tnt.domain.utilities.Book> inputBookList) {
 		log.info("........in booklist transformer");
 		List<Book> outputBookList = new ArrayList<Book>();
-		for (com.emc.ps.appmod.tnt.domain.book.Book inputBook : inputBookList) {
+		for (com.emc.ps.appmod.tnt.domain.utilities.Book inputBook : inputBookList) {
 			log.info(".....in booklist transformer...."+inputBook.getName());
 			outputBookList.add(transformBook(inputBook));
 		}

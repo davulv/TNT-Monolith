@@ -77,8 +77,8 @@ public class BookManager {
    * @return the list of all books sorted by requested criterion
    */
   public List<Book> getAllEntities(BookSearch search, SortCriteria sort){
-    return bookDAO.search( search, sort );
-    //return bookServiceProxy.getAllBooks(search, sort);
+    //return bookDAO.search( search, sort );
+    return bookServiceProxy.getAllBooks(search, sort);
   }
   
   /**
@@ -87,7 +87,7 @@ public class BookManager {
    */
   public Book getEntityById(int id){
     //return bookDAO.getById(id);
-	  return bookServiceProxy.getBookById(id);
+	  return (Book)bookServiceProxy.getById(id);
   }
 	
   /**

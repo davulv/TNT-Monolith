@@ -1,7 +1,4 @@
-/**
- * 
- */
-package com.emc.ps.appmod.tnt.domain.book;
+package com.emc.ps.appmod.tnt.domain.utilities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -9,55 +6,40 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * @author bj3
- *
- */
 @XmlRootElement
-public class Book implements Serializable{
-	
-	  /**
-	 * 
-	 */
-	private static final long serialVersionUID = -5038067440912265140L;
+public class Book implements Serializable {
 
-	private Integer id;
+	private static final long serialVersionUID = -1176285850047549079L;
+
+	private Long id;
 
 	private String name;
-    
+
 	private String author;
-     
+
 	private String ISBN;
-   
+
 	private String URL;
-	      
+
 	private BigDecimal price;
 
 	private Date purchaseDate;
-	      	      
+
 	private Integer ownerId;
-	      	      
+
 	private Integer departmentId;
-        
+
 	private Date insertDate;
-    
+
 	private Date updateDate;
-	  
-	  //private Integer lentToUserId;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	private Integer lentToUserId;
 
-	}
-
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -101,9 +83,11 @@ public class Book implements Serializable{
 		this.price = price;
 	}
 
+
 	public Date getPurchaseDate() {
 		return purchaseDate;
 	}
+
 
 	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
@@ -141,4 +125,11 @@ public class Book implements Serializable{
 		this.updateDate = updateDate;
 	}
 
+	public Integer getLentToUserId() {
+		return lentToUserId;
+	}
+
+	public void setLentToUserId(Integer lentToUserId) {
+		this.lentToUserId = lentToUserId;
+	}
 }

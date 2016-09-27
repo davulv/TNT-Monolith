@@ -193,6 +193,14 @@ public class Inventory implements Serializable {
 		this.id = id;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@Override
 	public String toString() {
 		return "Inventory [id=" + id + ", buyDate=" + buyDate + ", toRent="

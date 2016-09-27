@@ -49,7 +49,7 @@ public class RestUtil<T> {
 		return responseEntity;
 	}
 	
-	public T delete(String path){
+	public void delete(String path){
 		WebResource webResource = client
 				   .resource(baseURI +path);
 		ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON)
@@ -57,8 +57,7 @@ public class RestUtil<T> {
                 .delete(ClientResponse.class);
 		
 		
-		T responseEntity = response.getEntity(responseEntityClass);
-		return responseEntity;
+		
 	}
 	public T put(String path, T requestEntity){
 		WebResource webResource = client

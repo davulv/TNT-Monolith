@@ -19,6 +19,8 @@ package com.autentia.tnt.dao.hibernate;
 
 import com.autentia.tnt.businessobject.*;
 import com.autentia.tnt.dao.*;
+import com.autentia.tnt.manager.publish.MagazineServiceProxy;
+import com.autentia.tnt.manager.publish.MagazineServiceProxyImpl;
 import com.autentia.tnt.util.SpringUtils;
 
 import java.util.*;
@@ -36,6 +38,7 @@ public class MagazineDAO extends HibernateManagerBase<Magazine>
 
   /** Logger */
   private static final Log log = LogFactory.getLog(MagazineDAO.class);
+  private MagazineServiceProxy proxy = new MagazineServiceProxyImpl();
 
   /**
    * Get default MagazineDAO as defined in Spring's configuration file.
@@ -61,7 +64,8 @@ public class MagazineDAO extends HibernateManagerBase<Magazine>
    * @throws DataAccException on error
    */
   public Magazine getById( int id ) throws DataAccException {
-    return super.getByPk(Magazine.class,id);
+    //return super.getByPk(Magazine.class,id);
+	  return (Magazine)proxy.getById(id);
   }
 
   /** 

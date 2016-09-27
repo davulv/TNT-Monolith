@@ -40,7 +40,7 @@ public class Inventory implements Serializable {
 
 	private String description;
 
-	private InventoryType type;
+	private String type;
 
 	private Integer assignedTo;
 
@@ -152,11 +152,11 @@ public class Inventory implements Serializable {
 		this.description = description;
 	}
 
-	public InventoryType getInventoryType() {
+	public String getInventoryType() {
 		return type;
 	}
 
-	public void setInventoryType(InventoryType type) {
+	public void setInventoryType(String type) {
 		
 		this.type = type;
 	}
@@ -192,5 +192,19 @@ public class Inventory implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "Inventory [id=" + id + ", buyDate=" + buyDate + ", toRent="
+				+ toRent + ", amortizable=" + amortizable + ", cost=" + cost
+				+ ", serialNumber=" + serialNumber + ", provider=" + provider
+				+ ", trademark=" + trademark + ", model=" + model + ", speed="
+				+ speed + ", storage=" + storage + ", ram=" + ram
+				+ ", location=" + location + ", description=" + description
+				+ ", type=" + type + ", assignedTo=" + assignedTo
+				+ ", ownerId=" + ownerId + ", departmentId=" + departmentId
+				+ "]";
+	}
+	
 
 }

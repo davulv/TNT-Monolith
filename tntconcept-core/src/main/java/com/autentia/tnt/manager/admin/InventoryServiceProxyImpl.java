@@ -6,6 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.autentia.tnt.businessobject.Inventary;
+import com.autentia.tnt.businessobject.InventaryType;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.InventarySearch;
 import com.autentia.tnt.util.RestUtil;
@@ -42,6 +43,22 @@ public class InventoryServiceProxyImpl implements InventoryServiceProxy {
 		
 
 	}
+	
+	public List<InventaryType> getInventoryTypeList() {
+
+		RestUtil<String> rest = new RestUtil<String>
+		(getBaseURI(), String.class);
+		
+		ClientResponse response =  rest.getList("/type");
+		List<String> inventoryTypeList = response.getEntity(
+				new GenericType<List<String>>() {});
+		
+		
+		
+		return transform.transformInventoryType(inventoryTypeList);
+		
+
+	}
 
 	public Inventary getById(int id) {
 		RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory> rest = new RestUtil<com.emc.ps.appmod.tnt.domain.utilities.Inventory>
@@ -61,12 +78,14 @@ public class InventoryServiceProxyImpl implements InventoryServiceProxy {
 														(getBaseURI(), com.emc.ps.appmod.tnt.domain.utilities.Inventory.class);
 
 		com.emc.ps.appmod.tnt.domain.utilities.Inventory inventory =  transform.transformInventory(inventary);
-		log.info("insertEntity transformed");
+		log.info("insertEntity transformed:" + inventory );
 		try {
 		rest.post("/inventory", inventory);
 		}catch(Exception e) {
 			log.info("insertEntity exception", e);
 		}
+		
+	
 	}
 
 	public void updateEntity(Inventary inventary) {

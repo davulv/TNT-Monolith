@@ -3,6 +3,7 @@ package com.autentia.tnt.manager.admin;
 import java.util.List;
 
 import com.autentia.tnt.businessobject.Inventary;
+import com.autentia.tnt.businessobject.InventaryType;
 import com.autentia.tnt.dao.SortCriteria;
 import com.autentia.tnt.dao.search.InventarySearch;
 import com.autentia.tnt.manager.publish.IProxy;
@@ -31,4 +32,10 @@ public interface InventoryServiceProxy extends IProxy{
 	   * Delete publication. 
 	   */
 	  public void deleteEntity(Inventary Inventary);
+	  
+	  /**
+	   * get Inventory types 
+	   */
+	  
+	  public List<InventaryType> getInventoryTypeList();
 }

@@ -9,9 +9,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeanUtils;
 
+import com.autentia.tnt.businessobject.Magazine;
+import com.autentia.tnt.businessobject.User;
+import com.autentia.tnt.dao.hibernate.UserDAO;
+
 public class PublishBeanTransformer {
 	
 	private static final Log log = LogFactory.getLog(PublishBeanTransformer.class);
+	
+	private UserDAO userDao = new  UserDAO();
 	
 	public List<com.autentia.tnt.businessobject.Publication> transformPublication(
 			List<com.emc.ps.appmod.tnt.domain.publications.Publication> input){		
@@ -37,6 +43,12 @@ public class PublishBeanTransformer {
 		{
 			BeanUtilsBean.getInstance().copyProperties(pub, input);
 			pub.setId(input.getId());
+			/*Integer magazineId = input.getMagazineId();
+			log.info("Magazine id from input publication in transformer : "+magazineId);
+			Magazine magazine = (Magazine)magazineServiceProxy.getById(magazineId);
+			log.info("Object created from magazine id : "+magazine.toString());
+			pub.setMagazine(magazine);*/
+			
 		} 
 		catch (IllegalAccessException ex)
 		{
@@ -58,6 +70,9 @@ public class PublishBeanTransformer {
 		try
 		{
 			BeanUtilsBean.getInstance().copyProperties(pub, input);
+			/*Integer magazineId = input.getMagazine().getId();
+			log.info("Magazine id from business objects magazine object : "+magazineId);
+			pub.setMagazineId(magazineId);*/
 		} 
 		catch (IllegalAccessException ex)
 		{
@@ -141,6 +156,11 @@ public class PublishBeanTransformer {
 		{
 			BeanUtilsBean.getInstance().copyProperties(tut, input);
 			tut.setId(input.getId());
+			Integer userId = input.getUserId();
+			log.info("UserId from microservice Tutorial : "+userId);
+			User user = userDao.getById(userId);
+			log.info("User object created from userid of tutorial MS : "+user.toString());
+			tut.setUser(user);			
 		} 
 		catch (IllegalAccessException ex)
 		{
@@ -162,6 +182,9 @@ public class PublishBeanTransformer {
 		try
 		{
 			BeanUtilsBean.getInstance().copyProperties(tut, input);
+			Integer userId = input.getUser().getId();
+			log.info("UserId from tutorial business object's User object : "+userId);
+			tut.setUserId(userId);
 		} 
 		catch (IllegalAccessException ex)
 		{

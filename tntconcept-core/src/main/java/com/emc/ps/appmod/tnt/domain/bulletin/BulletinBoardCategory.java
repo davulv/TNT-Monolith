@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Category implements Serializable{
+public class BulletinBoardCategory implements Serializable{
 
 	private Integer id;
 

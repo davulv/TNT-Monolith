@@ -14,13 +14,12 @@ public class CategoryBeanTransformer {
 	
 	private static final Log log = LogFactory.getLog(CategoryBeanTransformer.class);
 	
-	public BulletinBoardCategory transformCategory(com.emc.ps.appmod.tnt.domain.bulletin.Category inputCategory) {
+	public BulletinBoardCategory transformCategory(com.emc.ps.appmod.tnt.domain.bulletin.BulletinBoardCategory inputCategory) {
 		
 		log.info("Inside individual categoryTransform returning business category");
 		BulletinBoardCategory outputCategory = new BulletinBoardCategory();
 		try{
 			BeanUtilsBean.getInstance().copyProperties(outputCategory, inputCategory);
-			outputCategory.setNumMessages(0);
 			log.info("After tarnsforming to business category : "+outputCategory.getName());
 		}catch (IllegalAccessException ex) {
 			// TODO: handle exception
@@ -32,10 +31,10 @@ public class CategoryBeanTransformer {
 		return outputCategory;
 	}
 	
-	public com.emc.ps.appmod.tnt.domain.bulletin.Category transformCategory(BulletinBoardCategory inputCategory) {
+	public com.emc.ps.appmod.tnt.domain.bulletin.BulletinBoardCategory transformCategory(BulletinBoardCategory inputCategory) {
 	
 		log.info("Inside individual categoryTransform returning our category");
-		com.emc.ps.appmod.tnt.domain.bulletin.Category outputCategory = new com.emc.ps.appmod.tnt.domain.bulletin.Category();
+		com.emc.ps.appmod.tnt.domain.bulletin.BulletinBoardCategory outputCategory = new com.emc.ps.appmod.tnt.domain.bulletin.BulletinBoardCategory();
 		try{
 			BeanUtilsBean.getInstance().copyProperties(outputCategory, inputCategory);
 		}catch (IllegalAccessException ex) {
@@ -48,10 +47,10 @@ public class CategoryBeanTransformer {
 		return outputCategory;
 	}
 	
-	public List<BulletinBoardCategory> transformCategoryList(List<com.emc.ps.appmod.tnt.domain.bulletin.Category> inputCategoryList) {
+	public List<BulletinBoardCategory> transformCategoryList(List<com.emc.ps.appmod.tnt.domain.bulletin.BulletinBoardCategory> inputCategoryList) {
 		log.info("........in categorylist transformer");
 		List<BulletinBoardCategory> outputCategoryList = new ArrayList<BulletinBoardCategory>();
-		for (com.emc.ps.appmod.tnt.domain.bulletin.Category inputCategory : inputCategoryList) {
+		for (com.emc.ps.appmod.tnt.domain.bulletin.BulletinBoardCategory inputCategory : inputCategoryList) {
 			log.info(".....in categoryList transformer...."+inputCategory.getName());
 			outputCategoryList.add(transformCategory(inputCategory));
 		}

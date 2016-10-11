@@ -242,7 +242,7 @@ public class User implements Serializable, ITransferObject
   // Setters and getters
   
   
-  protected void setId(Integer id) {
+  public void setId(Integer id) {
 	  this.id = id ; 
   }
 

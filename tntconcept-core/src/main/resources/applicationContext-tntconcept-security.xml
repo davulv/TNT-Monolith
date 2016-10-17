@@ -872,8 +872,8 @@
 	<entry><key><value>com.autentia.tnt.businessobject.CreditTitle</value></key><ref bean="daoCreditTitle"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.BillBreakDown</value></key><ref bean="daoBillBreakDown"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Book</value></key><ref bean="bookServiceProxy"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.BulletinBoardCategory</value></key><ref bean="daoBulletinBoardCategory"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.BulletinBoard</value></key><ref bean="daoBulletinBoard"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.BulletinBoardCategory</value></key><ref bean="proxydaoBulletinCategory"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.BulletinBoard</value></key><ref bean="proxydaoBulletin"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.CompanyState</value></key><ref bean="daoCompanyState"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Contact</value></key><ref bean="daoContact"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.ContractType</value></key><ref bean="daoContractType"/></entry>
@@ -883,7 +883,7 @@
 	<entry><key><value>com.autentia.tnt.businessobject.DocumentVersion</value></key><ref bean="daoDocumentVersion"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Frequency</value></key><ref bean="daoFrequency"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Holiday</value></key><ref bean="daoHoliday"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.Idea</value></key><ref bean="daoIdea"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.Idea</value></key><ref bean="proxydaoIdea"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Interaction</value></key><ref bean="daoInteraction"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.InteractionType</value></key><ref bean="daoInteractionType"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Inventary</value></key><ref bean="inventoryServiceProxy"/></entry>

@@ -20,7 +20,7 @@ public class MagazineServiceProxyImpl implements MagazineServiceProxy{
 	private PublishBeanTransformer transform = new PublishBeanTransformer();
 
 	public String getBaseURI(){
-		return "http://tnt-publications.cfapps.io";
+		return "http://tnt-publications.cfapps.io/api/publish";
 	}
 
 	public List<Magazine> getAllEntities(MagazineSearch search, SortCriteria sort) {

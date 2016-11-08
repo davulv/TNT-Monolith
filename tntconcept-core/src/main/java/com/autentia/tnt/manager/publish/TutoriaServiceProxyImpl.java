@@ -15,7 +15,7 @@ public class TutoriaServiceProxyImpl implements TutoriaServiceProxy{
 	private PublishBeanTransformer transform = new PublishBeanTransformer();
 
 	public String getBaseURI(){
-		return "http://tnt-publications.cfapps.io";
+		return "http://tnt-publications.cfapps.io/api/publish";
 	}
 
 	public List<Tutorial> getAllEntities(TutorialSearch search, SortCriteria sort) {

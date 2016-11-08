@@ -27,7 +27,7 @@ public class PublicationServiceProxyImpl implements PublicationServiceProxy {
 	}
 	
 	public String getBaseURI(){
-		return "http://tnt-publications.cfapps.io";
+		return "http://tnt-publications.cfapps.io/api/publish";
 	}
 	
 	public Publication afterTransformInitialization(Publication outputPublication, com.emc.ps.appmod.tnt.domain.publications.Publication inputPublication){

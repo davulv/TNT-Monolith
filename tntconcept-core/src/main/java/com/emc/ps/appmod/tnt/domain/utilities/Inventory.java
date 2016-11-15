@@ -47,6 +47,8 @@ public class Inventory implements Serializable {
 	private Integer ownerId;
 
 	private Integer departmentId;
+	
+	private String country;
 
 	public Date getBuyDate() {
 		return buyDate;
@@ -199,6 +201,16 @@ public class Inventory implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	@Override

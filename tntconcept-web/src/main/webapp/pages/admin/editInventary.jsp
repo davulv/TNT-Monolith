@@ -63,6 +63,20 @@
                   
   
       <%-- Ignored field: id --%>
+      
+      <%-- Field: Country --%>
+    <tr>
+    	    		<td class="editLabelRW">${msg['inventary.country']}:</td>
+    	      
+      <td class="editFieldCell">
+
+                  <h:panelGroup>
+            <h:message styleClass="error" showSummary="true" showDetail="false" for="country" />
+            <h:outputText id="country" value="#{inventaryBean.country}"/>
+          </h:panelGroup>
+
+              </td>
+    </tr>
   
                                   
     

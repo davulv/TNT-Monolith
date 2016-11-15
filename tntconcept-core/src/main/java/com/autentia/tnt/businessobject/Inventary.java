@@ -124,6 +124,8 @@ public class Inventary implements Serializable, ITransferObject
   
     
   private User assignedTo;
+  
+  private String country;
 
         	 	
 
@@ -313,7 +315,13 @@ public class Inventary implements Serializable, ITransferObject
     
     
   
-  @Override
+  public String getCountry() {
+	return country;
+}
+public void setCountry(String country) {
+	this.country = country;
+}
+@Override
   public boolean equals( Object that )
   {
   	try {

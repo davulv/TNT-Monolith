@@ -1032,7 +1032,9 @@ public class InventarySearch extends SearchCriteria
         this.descriptionSet = false;
     }
           
-  
+    public String getCountry(){
+        return country;
+    }
   
         
     
@@ -1234,7 +1236,7 @@ public class InventarySearch extends SearchCriteria
       private boolean descriptionSet;
         private String description;
 
-          
+        private String country;
   
       private boolean typeSet;
         private InventaryType type;

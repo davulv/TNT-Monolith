@@ -40,6 +40,7 @@ public class InventoryBeanTransformer {
 			inventary.setSpeed(input.getSpeed());
 			inventary.setStorage(input.getStorage());
 			inventary.setTrademark(input.getTrademark());
+			inventary.setCountry(input.getCountry());
 			
 			
 			//BeanUtilsBean.getInstance().copyProperties(inventary, input);

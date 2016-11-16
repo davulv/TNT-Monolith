@@ -28,7 +28,7 @@ private static final Log log = LogFactory.getLog(IdeaServiceProxyImpl.class);
 	}
 	
 	public String getBaseURI(){
-		return "http://tnt-bulletin.cfapps.io/api/bulletin";
+		return "http://tnt-edge.cfapps.io/zuul/api/bulletin";
 	}
 	
 	public Idea afterTransform(Idea outputIdea, com.emc.ps.appmod.tnt.domain.bulletin.Idea inputIdea) {

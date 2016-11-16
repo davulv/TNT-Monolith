@@ -31,7 +31,7 @@ public class BulletinBoardServiceproxyImpl implements BulletinBoardServiceProxy 
 	}
 	
 	public String getBaseURI(){
-		return "http://tnt-bulletin.cfapps.io/api/bulletin";
+		return "http://tnt-edge.cfapps.io/zuul/api/bulletin";
 	}
 	
 	public BulletinBoard afterTransform(BulletinBoard outputBulletinBoard, com.emc.ps.appmod.tnt.domain.bulletin.BulletinBoard inputbulletinBoard) {

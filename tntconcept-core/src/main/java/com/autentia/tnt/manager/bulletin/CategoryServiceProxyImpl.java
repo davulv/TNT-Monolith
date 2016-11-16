@@ -26,7 +26,7 @@ public class CategoryServiceProxyImpl implements CategoryServiceProxy {
 	}
 
 	public String getBaseURI(){
-		return "http://tnt-bulletin.cfapps.io/api/bulletin";
+		return "http://tnt-edge.cfapps.io/zuul/api/bulletin";
 	}
 	
 	public BulletinBoardCategory afterTransform(BulletinBoardCategory outputCategory, com.emc.ps.appmod.tnt.domain.bulletin.BulletinBoardCategory inputCategory) {

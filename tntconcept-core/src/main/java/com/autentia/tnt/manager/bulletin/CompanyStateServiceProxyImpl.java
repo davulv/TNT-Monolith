@@ -30,7 +30,7 @@ public class CompanyStateServiceProxyImpl implements CompanyStateServiceProxy {
 	}
 	
 	public String getBaseURI(){
-		return "http://tnt-bulletin.cfapps.io/api/bulletin";
+		return "http://tnt-edge.cfapps.io/zuul/api/bulletin";
 	}
 	
 	public CompanyState afterTransform(CompanyState companystate, com.emc.ps.appmod.tnt.domain.bulletin.CompanyState inputCompanyState) {

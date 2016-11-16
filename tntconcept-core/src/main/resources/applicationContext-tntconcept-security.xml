@@ -874,7 +874,7 @@
 	<entry><key><value>com.autentia.tnt.businessobject.Book</value></key><ref bean="bookServiceProxy"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.BulletinBoardCategory</value></key><ref bean="proxydaoBulletinCategory"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.BulletinBoard</value></key><ref bean="proxydaoBulletin"/></entry>
-	<entry><key><value>com.autentia.tnt.businessobject.CompanyState</value></key><ref bean="daoCompanyState"/></entry>
+	<entry><key><value>com.autentia.tnt.businessobject.CompanyState</value></key><ref bean="companyStateProxy"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Contact</value></key><ref bean="daoContact"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.ContractType</value></key><ref bean="daoContractType"/></entry>
 	<entry><key><value>com.autentia.tnt.businessobject.Department</value></key><ref bean="daoDepartment"/></entry>
